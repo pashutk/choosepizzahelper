@@ -1,0 +1,93 @@
+body {
+  font-family: 'Trebuchet MS';
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+form {
+  display: none;
+}
+.content {
+  width: 620px;
+  margin: 0 auto;
+  font-style: 1em;
+}
+.pizza {
+  margin-bottom: 20px;
+}
+.pizza .img,
+.pizza .desc,
+.pizza .options {
+  display: inline-block;
+  vertical-align: top;
+}
+.pizza .img {
+  flex-shrink: 0;
+  width: 177px;
+}
+.pizza .desc {
+  width: 250px;
+  padding: 0 10px;
+}
+.pizza .options {
+  width: 170px;
+}
+.pizza .options .option {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 0.5em;
+  float: left;
+  width: 49%;
+}
+.pizza .options .option dd {
+  margin-right: 0px;
+}
+.pizza .options .option dt {
+  margin-right: 2px;
+}
+.pizza .options .option:first-child {
+  float: none;
+  font-size: 1em;
+  width: 100%;
+}
+.pizza .options .option:first-child dt,
+.pizza .options .option:first-child dd {
+  margin-right: 5px;
+}
+.pizza .options .option:nth-child(2n) {
+  margin-right: 2%;
+}
+.pizza .options .fa {
+  color: #667;
+}
+.pizza .options dt,
+.pizza .options dd {
+  display: inline;
+  margin-left: 0;
+  margin-right: 5px;
+}
+.pizza .options .weight {
+  text-align: right;
+}
+.pizza .options .size,
+.pizza .options .weight {
+  width: 50%;
+  float: left;
+}
+.pizza .options .price {
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #d11e48;
+}
+.pizza .options .price i {
+  font-size: 0.7em;
+  color: #334;
+}
+.pizza .options .relprice {
+  text-align: center;
+}

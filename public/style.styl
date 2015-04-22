@@ -1,0 +1,78 @@
+$accentColor = #D11E48
+$blackColor = #334
+$grayColor = #667
+
+body 
+	font-family 'Trebuchet MS'
+
+h1 
+	text-align center
+	
+h2
+	text-align center
+	
+form
+	display none
+	
+.content 
+	width 620px
+	margin 0 auto
+	font-style 1em
+	
+.pizza
+	margin-bottom 20px
+	.img
+	.desc
+	.options
+		display inline-block
+		vertical-align top
+	.img 
+		flex-shrink 0
+		width 177px
+	.desc
+		width 250px
+		padding 0 10px
+	.options
+		width 170px
+		.option 
+			margin-top 0
+			margin-bottom 20px
+			font-size .5em
+			float left
+			width 49%
+			dd
+				margin-right 0px
+			dt
+				margin-right 2px	
+			&:first-child
+				float none
+				font-size 1em
+				width 100%
+				dt, dd
+					margin-right 5px
+			&:nth-child(2n)
+				margin-right 2%
+		.fa
+			color $grayColor
+		dt, dd
+			display inline
+			margin-left 0
+			margin-right 5px
+		.weight
+			text-align right
+		.size,
+		.weight
+			width 50%
+			float left
+		.price
+			display block
+			text-align center
+			font-size 2em
+			font-weight bold
+			color $accentColor
+			i 
+				font-size .7em
+				color $blackColor
+		.relprice
+			text-align center
+		

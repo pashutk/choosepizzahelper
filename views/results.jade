@@ -1,0 +1,31 @@
+extends layout.jade
+
+block content
+	h2 much results
+	.results(ng-controller='PizzasController as pizzasCtrl')
+		label Название: 
+			input(ng-model="searchText")
+		label Размер: 
+			select(ng-model="radius.size", ng-options='size for size in pizzasCtrl.filters.sizes')
+		form(action="/" type="POST")
+			button refresh
+		.pizza(ng-repeat='pizza in pizzasCtrl.pizzas | filter:searchText')
+			img.img(width='177', ng-src='{{pizza.img}}')
+			.desc
+				h3.name {{pizza.name}}
+				.ingredients {{pizza.ingredients}}
+			.options
+				dl.option(ng-repeat='option in pizza.data | filter:radius')
+					.size
+						dt.fa.fa-expand
+						dd {{option.size}} см.
+					.weight
+						dt.fa.fa-spoon
+						dd {{option.weight}} гр. 
+					.price
+						span {{option.price}} #[i.fa.fa-rub] 
+					.relprice
+						i {{option.rubmg.toFixed(3)}} за гр.
+			
+
+
