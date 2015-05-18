@@ -6,6 +6,7 @@ var url = require("url");
 var express = require('express');
 var open = require('open');
 var _ = require('underscore');
+var schedule = require('node-schedule');
 
 var app = express();
 
@@ -81,10 +82,7 @@ var takePizza = function(cb){
 	    				return price.rubmg
 	    			});
 	        		
-
-
 	        		pizzas.push(pizza);
-	        		// fs.writeFileSync('pizzas.json', JSON.stringify(pizzas), {encoding: 'utf8'});
 	        	});
 				pizzas = _.sortBy(pizzas, function(pizza){
 					var sizes = pizza.data;
@@ -111,18 +109,52 @@ var getFilters = function(){
 	fs.writeFileSync('public/filters.json', JSON.stringify(filters), {encoding: 'utf8'});
 };
 
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len;
+  if (this.length == 0) return hash;
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
+
+var createIngsList = function() {
+	var ingsArr = [];
+	var pizzas = JSON.parse(fs.readFileSync('public/pizzas.json'));
+	pizzas.forEach(function(pizza){
+		pizza.ingredients.split(',').forEach(function(ing){
+			ingsArr.push(ing.trim());
+		})
+	});
+	ingsArr = _.uniq(ings);
+	var ings = {};
+	ingsArr.forEach(function(ing){
+		var id = ing.hashCode
+		// ings[ing
+	})
+	fs.writeFileSync('public/ings.json', JSON.stringify(ings), {encoding: 'utf8'});
+}
+
+// createIngsList();
+
 app.get('/', function(req, res){
-	pizzas = JSON.parse(fs.readFileSync('public/pizzas.json'));
-	res.render('results', {pizzas: pizzas});	
+	res.render('results');	
 });
 
-takePizza();
-getFilters();
+var cronlike = schedule.scheduleJob('20 4 * * *', function(){
+	console.log('takin sum data yea');
+	takePizza();
+	getFilters();
+});
 
-var server = app.listen(20666, function(){
-  host = server.address().address
-  port = server.address().port
+var port = OPENSHIFT_NODEJS_PORT || 20666;
+
+var server = app.listen(port, function(){
+  var host = server.address().address
+  var port = server.address().port
   console.log('pizza huh app listening at http://%s:%s', host, port)
-  open('http://localhost:20666');
 });
 
+pizzas.forEach(function(pizza){pizza.ingredients.split(',').forEach(function(ing){ings.push(ing.trim())})})

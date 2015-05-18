@@ -1,22 +1,44 @@
 body {
   font-family: 'Trebuchet MS';
+  margin: 0;
+  padding: 0;
 }
 h1 {
   text-align: center;
 }
 h2 {
-  text-align: center;
+  text-align: left;
+  margin: 0 0 5px;
 }
 form {
   display: none;
 }
 .content {
   width: 620px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   font-style: 1em;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 5px 2px rgba(0,0,0,0.2);
+}
+.header {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQYV2O0O3X+PwMDA8MhM0NGEI0LMBKtEJsJD27YgW1R0DgEtwWrdUQrxGYLY8V5iDUdhghrKFOITfenmXFgW/jSF+H3DNEKsdkCAO99IAvSBrFVAAAAAElFTkSuQmCC");
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+.filters {
+  margin-bottom: 15px;
 }
 .pizza {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 3px;
 }
 .pizza .img,
 .pizza .desc,
@@ -29,7 +51,7 @@ form {
   width: 177px;
 }
 .pizza .desc {
-  width: 250px;
+  width: 230px;
   padding: 0 10px;
 }
 .pizza .options {

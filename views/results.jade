@@ -1,15 +1,17 @@
 extends layout.jade
 
 block content
-	h2 much results
 	.results(ng-controller='PizzasController as pizzasCtrl')
-		label Название: 
-			input(ng-model="searchText")
-		label Размер: 
-			select(ng-model="radius.size", ng-options='size for size in pizzasCtrl.filters.sizes')
-		form(action="/" type="POST")
-			button refresh
-		.pizza(ng-repeat='pizza in pizzasCtrl.pizzas | filter:searchText')
+		h2 Сортировка
+		.filters
+			label Название: 
+				input(ng-model="searchText")
+			label Размер: 
+				select(ng-model="radius", ng-options='size for size in pizzasCtrl.filters.sizes')
+			//- form(action="/" type="POST")
+				button refresh
+		h2 Пиццы!
+		.pizza(ng-repeat='pizza in pizzas | filter:filter')
 			img.img(width='177', ng-src='{{pizza.img}}')
 			.desc
 				h3.name {{pizza.name}}
